@@ -8,11 +8,7 @@ import {
 /* =========================================================
    KONFIGURASI — cukup edit bagian ini
    ========================================================= */
-// Foto contoh dari picsum.photos (acak).
-// Ganti dengan foto kalian di folder public/img, dirujuk dari root: '/img/cover.jpg'
-const demo = (seed, w = 800, h = 1000) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
-// Foto contoh bertema pernikahan dari Wikimedia Commons (lisensi bebas), hanya untuk pratinjau.
-const wiki = (file) => `https://commons.wikimedia.org/wiki/Special:FilePath/${file}?width=960`;
+// Foto ada di public/img (WebP). Ganti file dengan nama yang sama untuk memakai foto sendiri.
 
 const CONFIG = {
   groom: {
@@ -20,21 +16,21 @@ const CONFIG = {
     fullName: 'Muhammad Dzaki Alif Hidayat',
     parents: 'Putra pertama dari Bapak Nandar Hidayat & Ibu Arliana',
     instagram: '',
-    photo: wiki('A_groom_with_boutonniere_(Unsplash).jpg')
+    photo: '/img/groom.webp'
   },
   bride: {
     nickname: 'Selly',
     fullName: 'Selly Septi Yani',
     parents: 'Putri kedua dari Bapak Sakri & Ibu Santi',
     instagram: '',
-    photo: wiki('Bride_holding_a_bouquet_of_pink_roses_with_greenery_at_a_wedding_venue_decorated_for_the_celebration.jpg')
+    photo: '/img/bride.webp'
   },
   weddingDate: '2026-11-13T08:00:00+07:00',
 
   photos: {
-    cover: wiki('Wedding_couple_at_beach_bride_groom_bouquet_flowers_dress_gift_(29599967451).jpg'),
-    hero: wiki('Wedding_Decoration_in_Anambra_state,_Nigeria.jpg'),
-    footer: wiki('Our_rings!.jpg')
+    cover: '/img/cover.webp',
+    hero: '/img/hero.webp',
+    footer: '/img/footer.webp'
   },
 
   quote: '“Dan diantara tanda-tanda kekuasaanNya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikanNya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.”',
@@ -69,20 +65,7 @@ const CONFIG = {
   // Koordinat lokasi: 6°32'35.7"S 106°43'36.7"E
   mapQuery: '-6.543250,106.726861',
 
-  gallery: [
-    wiki('Couple_holds_hands_showing_wedding_rings_in_a_warm_setting_during_a_celebration.jpg'),
-    wiki('Bride_with_bouquet.jpg'),
-    wiki('Wedding-Flowers.jpg'),
-    wiki('White-wedding-dress.jpg'),
-    wiki('Wedding_rings_2.jpg'),
-    wiki('Couple_holding_sign_that_says_love_during_wedding_reception_in_a_decorated_venue.jpg'),
-    wiki('Reception_table_setting.jpg'),
-    wiki("Groom's_Boutonniere_(Unsplash).jpg"),
-    wiki('Wearing_of_engagement_ring.JPG'),
-    wiki('Chicago_Riverwalk_Bride_Portrait.jpg'),
-    wiki('Wedding_reception_stage,_decorations,_Kochi.jpg'),
-    wiki('Beach_Bliss_(3205542692).jpg')
-  ],
+  gallery: Array.from({ length: 12 }, (_, i) => `/img/galeri-${String(i + 1).padStart(2, '0')}.webp`),
 
   accounts: [
     { bank: 'Bank Mandiri', number: '1330025231812', name: 'Muhammad Dzaki Alif' },
