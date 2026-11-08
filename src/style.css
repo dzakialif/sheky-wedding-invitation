@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* Font lokal (woff2, subset Latin) — sumber .ttf asli ada di src/assets/fonts-source */
+@font-face {
+  font-family: "Great Vibes";
+  src: url("@fonts/GreatVibes-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("@fonts/CormorantGaramond.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("@fonts/CormorantGaramond-Italic.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("@fonts/Jost.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("@fonts/Jost-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Palet: putih (primary ~60%) – hitam (secondary ~30%) – maroon (aksen ~10%) */
+@theme {
+  --color-ink: #0B0B0B;
+  --color-ivory: #FFFFFF;
+  --color-sand: #F4F4F4;
+  --color-maroon: #7A1F2B;
+  --color-maroon-dark: #4E1019;
+  --color-maroon-soft: #E4B7BD;
+
+  --font-script: "Great Vibes", cursive;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", system-ui, sans-serif;
+}
+
+/* Layar pendek (HP landscape): rapatkan jarak di cover */
+@custom-variant short (@media (max-height: 500px));
+
+html { scroll-behavior: smooth; }
+body.locked { overflow: hidden; }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s ease, transform 1s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+#cover { transition: transform 1.1s cubic-bezier(.7,0,.3,1); }
+#cover.hide { transform: translateY(-100%); }
+
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+.spin-slow { animation: spin 5s linear infinite; }
+
+.photo-bw { filter: grayscale(100%) contrast(1.05); transition: filter .6s ease, transform .8s ease; }
+/* Efek hover hanya di perangkat bermouse; di HP efek ini "nyangkut" setelah disentuh */
+@media (hover: hover) {
+  .group:hover .photo-bw { filter: grayscale(0%); transform: scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .float, .spin-slow { animation: none; }
+}

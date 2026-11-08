@@ -1,0 +1,22 @@
+node_modules
+dist
+node_modules
+dist
+
+# log & sistem
+*.log
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# environment / Cloudflare
+.env
+.env.*
+.wrangler
+
+# data tamu (nama & nomor WA) — jangan ikut ter-publish
+tamu/
