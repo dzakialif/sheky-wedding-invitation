@@ -1,3 +1,5 @@
+# Catatan sumber foto latar di public/img (tidak ikut ter-deploy)
+
 Foto contoh (pratinjau) dari Wikimedia Commons, berlisensi bebas (CC / domain publik).
 Lisensi & atribusi lengkap ada di halaman masing-masing file di bawah.
 Ganti dengan foto kalian sendiri (nama file sama, format .webp) sebelum undangan disebar.

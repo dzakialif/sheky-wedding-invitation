@@ -55,8 +55,10 @@
 
 <!-- ============ COVER ============ -->
 <div id="cover" class="fixed inset-0 z-50 flex overflow-y-auto overflow-x-hidden bg-ink text-ivory">
-  <img data-src="cover" class="fixed inset-0 h-full w-full object-cover opacity-40 portrait:hidden" alt="">
-  <img data-src="coverPortrait" class="fixed inset-0 h-full w-full object-cover object-top opacity-40 landscape:hidden" alt="">
+  <picture>
+    <source data-srcset="coverPortrait" media="(orientation: portrait)">
+    <img data-src="cover" class="fixed inset-0 h-full w-full object-cover opacity-40 portrait:object-top" alt="">
+  </picture>
   <div class="fixed inset-0 bg-linear-to-b from-ink/50 via-ink/20 to-ink/70"></div>
   <div class="float fixed -left-6 -top-6"><svg class="h-32 w-32 -scale-y-100 text-maroon-soft short:h-28 short:w-28 sm:h-44 sm:w-44 lg:h-64 lg:w-64"><use href="#floral"/></svg></div>
   <div class="float fixed -bottom-6 -right-6"><svg class="h-32 w-32 rotate-180 text-maroon-soft short:h-28 short:w-28 sm:h-44 sm:w-44 lg:h-64 lg:w-64"><use href="#floral"/></svg></div>
@@ -130,7 +132,7 @@
     <p class="reveal text-sm uppercase tracking-[.4em] md:text-base lg:text-lg text-maroon">Bride &amp; Groom</p>
     <h2 class="reveal shimmer mt-3 py-1 font-script text-5xl md:text-6xl lg:text-7xl">Mempelai</h2>
     <div data-divider="heart" class="reveal mt-5"></div>
-    <p class="reveal mx-auto mt-6 max-w-sm md:max-w-md lg:max-w-lg text-lg leading-relaxed md:text-xl text-ink/70">Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan pernikahan kami.</p>
+    <p class="reveal mx-auto mt-6 max-w-sm md:max-w-md lg:max-w-lg text-lg leading-relaxed md:text-xl text-ink/70">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan kami.</p>
     <div class="mt-16 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-6">
       <div id="groom" class="reveal"></div>
       <div class="reveal my-12 flex flex-col items-center gap-2 text-maroon md:my-0">

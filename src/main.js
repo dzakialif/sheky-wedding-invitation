@@ -26,11 +26,12 @@ const CONFIG = {
     instagram: '',
     photo: '/img/selly.webp'
   },
-  weddingDate: '2026-11-13T08:00:00+07:00',
+  weddingDate: '2026-11-13T08:00:00+07:00',   // mulai acara (akad)
+  weddingEnd: '2026-11-13T21:00:00+07:00',    // selesai acara (resepsi) — untuk Google Calendar
 
   photos: {
     cover: '/img/2.webp',          // layar landscape (desktop)
-    coverPortrait: '/img/1.webp',  // layar portrait (HP)
+    coverPortrait: '/img/7.webp',  // layar portrait (HP)
     hero: '/img/hero.webp',
     footer: '/img/footer.webp'
   },
@@ -113,7 +114,11 @@ document.querySelectorAll('[data-bind="dateLong"]').forEach((n) => { n.textConte
 $('[data-bind="quote"]').textContent = CONFIG.quote;
 $('[data-bind="quoteSource"]').textContent = CONFIG.quoteSource;
 
-// Foto latar
+// Foto latar (<source> diisi dulu agar browser hanya mengunduh satu foto cover)
+document.querySelectorAll('source[data-srcset]').forEach((s) => {
+  const src = CONFIG.photos[s.dataset.srcset];
+  if (src) s.srcset = src; else s.remove();
+});
 document.querySelectorAll('img[data-src]').forEach((img) => {
   const src = CONFIG.photos[img.dataset.src];
   if (src) img.src = src; else img.remove();
@@ -272,7 +277,7 @@ tick(); setInterval(tick, 1000);
 // Google Calendar
 (() => {
   const fmt = (d) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-  const end = new Date(wDate.getTime() + 6 * 36e5);
+  const end = CONFIG.weddingEnd ? new Date(CONFIG.weddingEnd) : new Date(wDate.getTime() + 6 * 36e5);
   const ev = CONFIG.events[0];
   $('#calendarBtn').href = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({
     action: 'TEMPLATE',
