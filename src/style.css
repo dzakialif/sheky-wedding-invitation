@@ -80,3 +80,58 @@ body.locked { overflow: hidden; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .float, .spin-slow { animation: none; }
 }
+
+/* ====== Dekorasi tambahan ====== */
+/* Tekstur titik halus untuk bagian terang */
+.bg-pattern {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(122 31 43 / .09) 1px, transparent 0),
+    radial-gradient(ellipse at top, rgb(228 183 189 / .25), transparent 60%);
+  background-size: 22px 22px, 100% 100%;
+}
+.bg-pattern-dark {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(255 255 255 / .07) 1px, transparent 0),
+    radial-gradient(ellipse at center, rgb(122 31 43 / .35), transparent 70%);
+  background-size: 22px 22px, 100% 100%;
+}
+
+/* Bingkai garis ganda dengan ornamen di sudut */
+.frame::before, .frame::after {
+  content: ""; position: absolute; pointer-events: none; border-radius: inherit;
+}
+.frame::before { inset: 10px; border: 1px solid currentColor; opacity: .35; }
+.frame::after  { inset: 16px; border: 1px solid currentColor; opacity: .15; }
+.frame-corner { position: absolute; width: 18px; height: 18px; color: inherit; opacity: .7; }
+
+/* Kelopak bunga berjatuhan */
+#petals { position: fixed; inset: 0; pointer-events: none; z-index: 30; overflow: hidden; }
+.petal {
+  position: absolute; top: -30px;
+  width: 12px; height: 14px;
+  background: linear-gradient(135deg, #E4B7BD, #7A1F2B);
+  border-radius: 80% 0 80% 0;
+  opacity: .55;
+  animation: petal-fall linear infinite, petal-sway ease-in-out infinite alternate;
+}
+@keyframes petal-fall {
+  to { transform: translateY(110vh) rotate(540deg); }
+}
+@keyframes petal-sway {
+  from { margin-left: -24px; } to { margin-left: 24px; }
+}
+
+/* Kilau lembut pada judul script */
+.shimmer {
+  background: linear-gradient(110deg, currentColor 35%, #E4B7BD 50%, currentColor 65%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s ease-in-out infinite;
+}
+@keyframes shimmer { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  #petals { display: none; }
+  .shimmer { animation: none; }
+}
