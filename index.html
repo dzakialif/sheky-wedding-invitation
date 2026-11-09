@@ -55,16 +55,17 @@
 
 <!-- ============ COVER ============ -->
 <div id="cover" class="fixed inset-0 z-50 flex overflow-y-auto overflow-x-hidden bg-ink text-ivory">
-  <img data-src="cover" class="fixed inset-0 h-full w-full object-cover opacity-40" alt="">
+  <img data-src="cover" class="fixed inset-0 h-full w-full object-cover opacity-40 portrait:hidden" alt="">
+  <img data-src="coverPortrait" class="fixed inset-0 h-full w-full object-cover object-top opacity-40 landscape:hidden" alt="">
   <div class="fixed inset-0 bg-linear-to-b from-ink/50 via-ink/20 to-ink/70"></div>
-  <div class="float fixed -left-6 -top-6"><svg class="h-52 w-52 -scale-y-100 text-maroon-soft short:h-32 short:w-32 sm:h-52 sm:w-52 lg:h-72 lg:w-72"><use href="#floral"/></svg></div>
-  <div class="float fixed -bottom-6 -right-6"><svg class="h-52 w-52 rotate-180 text-maroon-soft short:h-32 short:w-32 sm:h-52 sm:w-52 lg:h-72 lg:w-72"><use href="#floral"/></svg></div>
+  <div class="float fixed -left-6 -top-6"><svg class="h-32 w-32 -scale-y-100 text-maroon-soft short:h-28 short:w-28 sm:h-44 sm:w-44 lg:h-64 lg:w-64"><use href="#floral"/></svg></div>
+  <div class="float fixed -bottom-6 -right-6"><svg class="h-32 w-32 rotate-180 text-maroon-soft short:h-28 short:w-28 sm:h-44 sm:w-44 lg:h-64 lg:w-64"><use href="#floral"/></svg></div>
 
   <div class="frame pointer-events-none fixed inset-3 rounded-[2rem] text-maroon-soft sm:inset-5"></div>
 
   <div class="relative m-auto px-8 py-12 text-center short:py-6">
     <div class="mb-6 flex items-center justify-center gap-2 text-maroon-soft short:hidden">
-      <i data-lucide="sparkle" class="h-3 w-3 fill-current"></i><i data-lucide="flower-2" class="h-6 w-6"></i><i data-lucide="sparkle" class="h-3 w-3 fill-current"></i>
+      <i data-lucide="sparkle" class="h-2.5 w-2.5 fill-current"></i><i data-lucide="flower-2" class="h-5 w-5"></i><i data-lucide="sparkle" class="h-2.5 w-2.5 fill-current"></i>
     </div>
     <p class="text-base uppercase tracking-[.4em] md:text-lg lg:text-xl text-maroon-soft">The Wedding of</p>
     <h1 class="my-6 font-script text-6xl leading-[1.1] *:block short:my-2 sm:text-7xl sm:leading-tight sm:*:inline md:text-8xl lg:text-9xl" data-bind="couple"></h1>
@@ -173,7 +174,7 @@
 </section>
 
 <!-- ============ COUNTDOWN ============ -->
-<section class="bg-pattern-dark relative overflow-hidden bg-ink px-6 py-28 text-center text-ivory">
+<section class="bg-pattern-dark relative overflow-hidden bg-ink px-10 py-28 text-center text-ivory sm:px-14">
   <div class="frame pointer-events-none absolute inset-3 rounded-[2rem] text-maroon-soft sm:inset-5"></div>
   <svg class="absolute -right-8 -top-8 h-40 w-40 rotate-180 text-maroon-soft/40 lg:h-56 lg:w-56"><use href="#floral"/></svg>
   <svg class="absolute -left-8 -bottom-8 h-48 w-48 text-maroon-soft/50 lg:h-64 lg:w-64"><use href="#floral"/></svg>
@@ -189,13 +190,13 @@
       <p class="font-serif text-xl italic text-ivory md:text-2xl lg:text-3xl" data-bind="dateLong"></p>
       <span class="h-px w-8 bg-maroon-soft/60 md:w-12"></span>
     </div>
-    <div class="mt-10 grid grid-cols-4 gap-2 min-[360px]:gap-3 md:gap-5">
-      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdDays" class="font-serif text-3xl leading-none min-[360px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-sm uppercase tracking-[.2em] md:mt-3 md:text-base text-maroon-soft">Hari</p></div>
-      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdHours" class="font-serif text-3xl leading-none min-[360px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-sm uppercase tracking-[.2em] md:mt-3 md:text-base text-maroon-soft">Jam</p></div>
-      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdMins" class="font-serif text-3xl leading-none min-[360px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-sm uppercase tracking-[.2em] md:mt-3 md:text-base text-maroon-soft">Menit</p></div>
-      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdSecs" class="font-serif text-3xl leading-none min-[360px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-sm uppercase tracking-[.2em] md:mt-3 md:text-base text-maroon-soft">Detik</p></div>
+    <div class="mt-10 grid grid-cols-4 gap-2 min-[400px]:gap-3 md:gap-5">
+      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdDays" class="font-serif text-3xl leading-none min-[400px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-xs uppercase tracking-[.15em] min-[400px]:text-sm md:mt-3 md:text-base md:tracking-[.2em] text-maroon-soft">Hari</p></div>
+      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdHours" class="font-serif text-3xl leading-none min-[400px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-xs uppercase tracking-[.15em] min-[400px]:text-sm md:mt-3 md:text-base md:tracking-[.2em] text-maroon-soft">Jam</p></div>
+      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdMins" class="font-serif text-3xl leading-none min-[400px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-xs uppercase tracking-[.15em] min-[400px]:text-sm md:mt-3 md:text-base md:tracking-[.2em] text-maroon-soft">Menit</p></div>
+      <div class="rounded-2xl border border-maroon-soft/30 bg-linear-to-b from-ivory/10 to-maroon/20 py-5 shadow-lg shadow-black/30 md:py-7"><p id="cdSecs" class="font-serif text-3xl leading-none min-[400px]:text-4xl md:text-5xl lg:text-6xl">0</p><p class="mt-2 text-xs uppercase tracking-[.15em] min-[400px]:text-sm md:mt-3 md:text-base md:tracking-[.2em] text-maroon-soft">Detik</p></div>
     </div>
-    <a id="calendarBtn" target="_blank" rel="noopener" class="mt-10 inline-flex items-center gap-2 rounded-full border border-ivory/70 px-7 py-3 text-base uppercase tracking-[.25em] lg:text-lg transition hover:bg-ivory hover:text-ink">
+    <a id="calendarBtn" target="_blank" rel="noopener" class="mt-10 inline-flex items-center gap-2 rounded-full border border-ivory/70 px-6 py-3 text-sm uppercase tracking-[.2em] min-[400px]:text-base md:px-7 md:tracking-[.25em] lg:text-lg transition hover:bg-ivory hover:text-ink">
       <i data-lucide="calendar-plus" class="h-4 w-4"></i> Simpan ke Kalender
     </a>
   </div>
@@ -236,7 +237,7 @@
 </section>
 
 <!-- ============ DOA & RESTU ============ -->
-<section class="bg-pattern-dark relative overflow-hidden bg-maroon px-6 py-24 text-center text-ivory">
+<section class="bg-pattern-dark relative overflow-hidden bg-maroon px-10 py-24 text-center text-ivory sm:px-14">
   <div class="frame pointer-events-none absolute inset-3 rounded-[2rem] text-maroon-soft sm:inset-5"></div>
   <svg class="absolute -bottom-8 -left-8 h-44 w-44 text-ivory/25 lg:h-60 lg:w-60"><use href="#floral"/></svg>
   <svg class="absolute -right-8 -top-8 h-44 w-44 rotate-180 text-ivory/30 lg:h-60 lg:w-60"><use href="#floral"/></svg>
@@ -268,7 +269,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="relative overflow-hidden bg-ink px-6 py-24 text-center text-ivory">
+<footer class="relative overflow-hidden bg-ink px-10 py-24 text-center text-ivory sm:px-14">
   <img data-src="footer" class="absolute inset-0 h-full w-full object-cover opacity-25 photo-bw" alt="">
   <div class="absolute inset-0 bg-ink/60"></div>
   <div class="frame pointer-events-none absolute inset-3 rounded-[2rem] text-maroon-soft sm:inset-5"></div>

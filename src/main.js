@@ -29,7 +29,8 @@ const CONFIG = {
   weddingDate: '2026-11-13T08:00:00+07:00',
 
   photos: {
-    cover: '/img/2.webp',
+    cover: '/img/2.webp',          // layar landscape (desktop)
+    coverPortrait: '/img/1.webp',  // layar portrait (HP)
     hero: '/img/hero.webp',
     footer: '/img/footer.webp'
   },
