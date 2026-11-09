@@ -112,7 +112,7 @@ document.querySelectorAll('img[data-src]').forEach((img) => {
 // Mempelai (bingkai lengkung/arch)
 function personHTML(p) {
   const ig = p.instagram
-    ? `<a href="https://instagram.com/${encodeURIComponent(p.instagram)}" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-1.5 text-sm text-maroon md:text-base hover:underline"><i data-lucide="at-sign" class="h-4 w-4"></i>@${esc(p.instagram)}</a>`
+    ? `<a href="https://instagram.com/${encodeURIComponent(p.instagram)}" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-1.5 text-base text-maroon md:text-lg hover:underline"><i data-lucide="at-sign" class="h-4 w-4"></i>@${esc(p.instagram)}</a>`
     : '';
   return `
     <div class="group relative mx-auto w-52 md:w-56 lg:w-64">
@@ -123,7 +123,7 @@ function personHTML(p) {
     </div>
     <p class="mt-10 font-script text-5xl text-maroon lg:text-6xl">${esc(p.nickname)}</p>
     <p class="mt-2 font-serif text-2xl font-medium lg:text-3xl">${esc(p.fullName)}</p>
-    <p class="mt-2 text-sm text-ink/60 md:text-base">${esc(p.parents)}</p>
+    <p class="mt-2 text-base text-ink/60 md:text-lg">${esc(p.parents)}</p>
     ${ig}`;
 }
 $('#groom').innerHTML = personHTML(CONFIG.groom);
@@ -136,7 +136,7 @@ $('#story').innerHTML = CONFIG.story.map((s) => `
       <span class="h-2 w-2 rounded-full bg-maroon"></span>
     </span>
     <p class="font-serif text-2xl font-medium md:text-3xl">${esc(s.title)}</p>
-    <p class="mt-2 text-[15px] leading-relaxed text-ink/70 md:text-base lg:text-lg">${esc(s.text)}</p>
+    <p class="mt-2 text-base leading-relaxed text-ink/70 md:text-lg">${esc(s.text)}</p>
   </li>`).join('');
 
 // Acara
@@ -147,13 +147,13 @@ $('#events').innerHTML = CONFIG.events.map((ev) => `
       <i data-lucide="${esc(ev.icon || 'calendar-heart')}" class="h-6 w-6"></i>
     </div>
     <p class="mt-5 font-script text-4xl text-maroon md:text-5xl">${esc(ev.title)}</p>
-    <div class="mx-auto mt-6 max-w-xs space-y-3 text-left text-[15px] md:text-base lg:max-w-sm lg:text-lg">
+    <div class="mx-auto mt-6 max-w-xs space-y-3 text-left text-base md:text-lg lg:max-w-sm">
       <p class="flex items-start gap-3"><i data-lucide="calendar" class="mt-0.5 h-4 w-4 shrink-0 text-maroon"></i>${esc(ev.date)}</p>
       <p class="flex items-start gap-3"><i data-lucide="clock" class="mt-0.5 h-4 w-4 shrink-0 text-maroon"></i>${esc(ev.time)}</p>
       <p class="flex items-start gap-3"><i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-maroon"></i>
         <span><span class="font-medium">${esc(ev.place)}</span><br><span class="text-ink/60">${esc(ev.address)}</span></span></p>
     </div>
-    ${ev.mapsLink ? `<a href="${esc(ev.mapsLink)}" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3 text-xs uppercase tracking-[.25em] text-ivory lg:text-sm transition hover:bg-maroon"><i data-lucide="navigation" class="h-4 w-4"></i> Petunjuk Arah</a>` : ''}
+    ${ev.mapsLink ? `<a href="${esc(ev.mapsLink)}" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3 text-sm uppercase tracking-[.25em] text-ivory lg:text-base transition hover:bg-maroon"><i data-lucide="navigation" class="h-4 w-4"></i> Petunjuk Arah</a>` : ''}
   </div>`).join('');
 $('#mapFrame').src = 'https://www.google.com/maps?q=' + encodeURIComponent(CONFIG.mapQuery) + '&output=embed';
 
@@ -181,10 +181,10 @@ if (!CONFIG.accounts.length) {
   $('#accounts').innerHTML = CONFIG.accounts.map((a) => `
     <div class="relative overflow-hidden rounded-3xl bg-ink p-7 text-left text-ivory">
       <i data-lucide="credit-card" class="absolute right-6 top-6 h-6 w-6 text-maroon-soft"></i>
-      <p class="text-[11px] uppercase tracking-[.3em] text-maroon-soft md:text-xs">${esc(a.bank)}</p>
+      <p class="text-xs uppercase tracking-[.3em] text-maroon-soft md:text-sm">${esc(a.bank)}</p>
       <p class="mt-6 font-serif text-3xl tracking-wider lg:text-4xl">${esc(a.number)}</p>
-      <p class="mt-1 text-sm text-ivory/70 md:text-base">a.n. ${esc(a.name)}</p>
-      <button class="copy-btn mt-6 inline-flex items-center gap-2 rounded-full border border-ivory/60 px-5 py-2 text-[11px] uppercase tracking-[.2em] transition md:text-xs hover:bg-ivory hover:text-ink" data-number="${esc(a.number)}">
+      <p class="mt-1 text-base text-ivory/70 md:text-lg">a.n. ${esc(a.name)}</p>
+      <button class="copy-btn mt-6 inline-flex items-center gap-2 rounded-full border border-ivory/60 px-5 py-2 text-xs uppercase tracking-[.2em] transition md:text-sm hover:bg-ivory hover:text-ink" data-number="${esc(a.number)}">
         <i data-lucide="copy" class="h-3.5 w-3.5"></i><span>Salin Nomor</span>
       </button>
     </div>`).join('');
