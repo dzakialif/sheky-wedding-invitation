@@ -80,7 +80,8 @@ const CONFIG = {
     { bank: 'Bank BCA', number: '5737115858', name: 'Selly Septi Yani' },
   ],
 
-  music: ''   // contoh: '/music/lagu.mp3' (file di public/music)
+  // Can't Help Falling in Love (cover Kaia Kingsley) — taruh file MP3-nya di public/music dengan nama ini
+  music: '/music/cant-help-falling-in-love.mp3'
 };
 
 /* =========================================================
