@@ -81,7 +81,8 @@ const CONFIG = {
   ],
 
   // Can't Help Falling in Love (cover Kaia Kingsley) — taruh file MP3-nya di public/music dengan nama ini
-  music: '/music/cant-help-falling-in-love.mp3'
+  music: '/music/cant-help-falling-in-love.mp3',
+  musicStart: 8   // detik mulai diputar (melewati intro); 0 = dari awal
 };
 
 /* =========================================================
@@ -284,7 +285,14 @@ tick(); setInterval(tick, 1000);
 // Musik
 const audio = $('#bgMusic');
 const musicBtn = $('#musicBtn');
-if (CONFIG.music) audio.src = CONFIG.music;
+const musicStart = CONFIG.musicStart || 0;
+// "#t=8" = media fragment: browser langsung mulai dari detik ke-8
+if (CONFIG.music) audio.src = CONFIG.music + (musicStart ? `#t=${musicStart}` : '');
+// Saat lagu selesai, ulangi dari detik musicStart (bukan dari 0)
+audio.addEventListener('ended', () => {
+  audio.currentTime = musicStart;
+  audio.play().catch(() => {});
+});
 const setPlaying = (on) => musicBtn.firstElementChild.classList.toggle('spin-slow', on);
 musicBtn.addEventListener('click', () => {
   if (audio.paused) audio.play().then(() => setPlaying(true)).catch(() => {});
